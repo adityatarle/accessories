@@ -141,7 +141,7 @@
         </div>
 
         <!-- Product Images Section -->
-        <div class="bg-white shadow rounded-lg p-6" x-data="imageUploader()">
+        <div class="bg-white shadow rounded-lg p-6" x-data="imageUploader()" x-init="init()">
             <h3 class="text-lg font-medium text-gray-900 mb-4">Product Images</h3>
             
             <!-- Image Upload Area -->
@@ -223,6 +223,8 @@
                                        @input="updateSortOrder(index, $event.target.value)"
                                        class="w-full text-xs text-center border border-gray-300 rounded px-2 py-1"
                                        placeholder="Order">
+                                <!-- Hidden input to track which files are being uploaded -->
+                                <input type="hidden" :name="`image_names[${index}]`" :value="image.name">
                             </div>
                         </div>
                     </template>
@@ -309,6 +311,19 @@ function imageUploader() {
     return {
         images: [],
         isDragging: false,
+        fileInput: null,
+        
+        init() {
+            this.fileInput = document.getElementById('image-upload');
+            // Intercept form submission to ensure files are included
+            const form = this.fileInput ? this.fileInput.closest('form') : null;
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    // Before form submits, sync files to the input
+                    this.syncHiddenInput();
+                });
+            }
+        },
         
         handleFileSelect(event) {
             const files = Array.from(event.target.files);
@@ -316,14 +331,21 @@ function imageUploader() {
         },
         
         handleDrop(event) {
+            event.preventDefault();
             this.isDragging = false;
             const files = Array.from(event.dataTransfer.files);
             this.processFiles(files);
+            // Sync files to input after drop
+            this.syncHiddenInput();
         },
         
         processFiles(files) {
             files.forEach(file => {
                 if (file.type.startsWith('image/')) {
+                    // Check if file already exists to avoid duplicates
+                    const exists = this.images.some(img => img.name === file.name && img.file.size === file.size);
+                    if (exists) return;
+                    
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         this.images.push({
@@ -333,6 +355,8 @@ function imageUploader() {
                             isPrimary: this.images.length === 0, // First image is primary by default
                             sortOrder: this.images.length + 1
                         });
+                        // Sync after each file is processed
+                        this.syncHiddenInput();
                     };
                     reader.readAsDataURL(file);
                 }
@@ -345,6 +369,7 @@ function imageUploader() {
             if (this.images.length > 0 && !this.images.some(img => img.isPrimary)) {
                 this.images[0].isPrimary = true;
             }
+            this.syncHiddenInput();
         },
         
         setPrimary(index) {
@@ -356,6 +381,39 @@ function imageUploader() {
         
         updateSortOrder(index, value) {
             this.images[index].sortOrder = parseInt(value) || 0;
+        },
+
+        syncHiddenInput() {
+            if (!this.fileInput) {
+                this.fileInput = document.getElementById('image-upload');
+            }
+            if (!this.fileInput) {
+                console.error('File input not found');
+                return;
+            }
+
+            // Only sync if we have images to sync
+            if (this.images.length === 0) {
+                return;
+            }
+
+            try {
+                // Create a DataTransfer object to build a new FileList
+                const dt = new DataTransfer();
+                this.images.forEach(img => {
+                    if (img.file instanceof File) {
+                        dt.items.add(img.file);
+                    }
+                });
+                
+                // Assign the new FileList to the file input so it submits with the form
+                this.fileInput.files = dt.files;
+                
+                // Verify the sync worked
+                console.log('Synced files:', this.fileInput.files.length, 'files to input');
+            } catch (error) {
+                console.error('Error syncing files:', error);
+            }
         }
     }
 }
