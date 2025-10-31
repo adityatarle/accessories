@@ -4,15 +4,15 @@
 @section('description', 'Review your selected items and proceed to checkout.')
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
     <!-- Header -->
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Shopping Cart</h1>
-        <p class="text-gray-600">Review your items and proceed to checkout</p>
+    <div class="mb-6 sm:mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Shopping Cart</h1>
+        <p class="text-sm sm:text-base text-gray-600">Review your items and proceed to checkout</p>
     </div>
 
     @if($cartItems->count() > 0)
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         <!-- Cart Items -->
         <div class="lg:col-span-2">
             <div class="bg-white rounded-lg shadow-md">
@@ -22,11 +22,11 @@
                 
                 <div class="divide-y divide-gray-200">
                     @foreach($cartItems as $item)
-                    <div class="p-6">
-                        <div class="flex items-center space-x-4">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             <!-- Product Image -->
                             <div class="flex-shrink-0">
-                                <div class="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gray-200 rounded-lg overflow-hidden">
                                     <div class="w-full h-full bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center">
                                         <div class="text-center">
                                             <div class="text-2xl">✨</div>
@@ -36,13 +36,13 @@
                             </div>
                             
                             <!-- Product Details -->
-                            <div class="flex-1 min-w-0">
-                                <h3 class="text-lg font-semibold text-gray-900">{{ $item->product->name }}</h3>
-                                <p class="text-sm text-gray-600">{{ $item->product->brand->name }}</p>
-                                <p class="text-sm text-gray-500">SKU: {{ $item->product->sku }}</p>
+                            <div class="flex-1 min-w-0 w-full sm:w-auto">
+                                <h3 class="text-base sm:text-lg font-semibold text-gray-900">{{ $item->product->name }}</h3>
+                                <p class="text-xs sm:text-sm text-gray-600">{{ $item->product->brand->name }}</p>
+                                <p class="text-xs sm:text-sm text-gray-500">SKU: {{ $item->product->sku }}</p>
                                 
                                 <!-- Quantity Controls -->
-                                <div class="mt-4 flex items-center space-x-4">
+                                <div class="mt-3 sm:mt-4 flex items-center space-x-4">
                                     <div class="flex items-center border border-gray-300 rounded-lg">
                                         <button type="button" 
                                                 class="px-3 py-1 text-gray-600 hover:text-gray-800 update-quantity" 
@@ -73,11 +73,11 @@
                             </div>
                             
                             <!-- Price -->
-                            <div class="text-right">
-                                <div class="text-lg font-semibold text-gray-900">
+                            <div class="text-left sm:text-right w-full sm:w-auto">
+                                <div class="text-base sm:text-lg font-semibold text-gray-900">
                                     ₹{{ number_format($item->total, 2) }}
                                 </div>
-                                <div class="text-sm text-gray-500">
+                                <div class="text-xs sm:text-sm text-gray-500">
                                     ₹{{ number_format($item->price, 2) }} each
                                 </div>
                             </div>

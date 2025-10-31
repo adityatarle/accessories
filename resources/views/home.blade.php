@@ -19,54 +19,54 @@
     <div class="absolute inset-0 bg-black/60"></div>
 
     {{-- 3. Content – sits on top of the image --}}
-    <div class="relative z-10 flex min-h-screen items-center justify-end px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto  text-right">
-            <h1 class="text-5xl font-bold leading-tight md:text-7xl text-white font-tanishq-display">
+    <div class="relative z-10 flex min-h-screen items-center justify-center md:justify-end px-4 sm:px-6 lg:px-8 py-20 md:py-0">
+        <div class="mx-auto text-center md:text-right max-w-4xl">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white font-tanishq-display">
                 Transform Your
                 <span class="block text-yellow-300">Living Space</span>
             </h1>
 
-            <p class="mx-auto mt-6 text-xl text-pink-100 md:text-2xl py-3 font-tanishq">
+            <p class="mx-auto mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-pink-100 py-3 font-tanishq max-w-2xl md:max-w-none">
                 Premium home decor and accessories curated for the modern home.
                 Express your style with our exclusive collection of beautiful furnishings.
             </p>
 
-            <div class="mt-10 flex flex-col justify-end my-6 gap-6 sm:flex-row">
+            <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center md:justify-end gap-4 sm:gap-6 my-6">
                 <a href="{{ route('shop') }}"
-                    class="rounded-full bg-white px-10 py-4 font-bold text-pink-600 text-lg shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
+                    class="rounded-full bg-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold text-pink-600 text-base sm:text-lg shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
                     Shop Now
                 </a>
                 <a href="#featured"
-                    class="rounded-full border-2 border-white px-10 py-4 font-bold text-white text-lg transition-all hover:bg-white hover:text-pink-600 hover:scale-105">
+                    class="rounded-full border-2 border-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold text-white text-base sm:text-lg transition-all hover:bg-white hover:text-pink-600 hover:scale-105">
                     Explore Collection
                 </a>
             </div>
         </div>
     </div>
 </section>
-<div class="flex flex-col md:flex-row min-h-screen bg-pink-600">
+<div class="flex flex-col md:flex-row min-h-[60vh] md:min-h-screen bg-pink-600">
     <!-- Left: Text Content -->
-    <div class="flex-1 flex items-center justify-center p-6 md:p-12">
+    <div class="flex-1 flex items-center justify-center p-6 sm:p-8 md:p-12 order-2 md:order-1">
         <div class="text-center text-white max-w-md">
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight font-tanishq-display">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-tanishq-display">
                 Innovate with Us
             </h1>
-            <p class="mt-4 text-lg opacity-90 font-tanishq">
+            <p class="mt-4 text-base sm:text-lg opacity-90 font-tanishq">
                 Discover new possibilities and drive success.
             </p>
             <a href="https://spacema-dev.com/free-tailwind-css-templates/"
-                class="mt-6 inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-all hover:scale-105">
+                class="mt-6 inline-block bg-white text-blue-600 font-semibold py-2 sm:py-3 px-5 sm:px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-all hover:scale-105 text-sm sm:text-base">
                 Free Tailwind Template
             </a>
         </div>
     </div>
 
     <!-- Right: Full Image (using <img> + object-cover) -->
-    <div class="relative flex-1 overflow-hidden">
+    <div class="relative flex-1 overflow-hidden min-h-[40vh] md:min-h-full order-1 md:order-2">
         <img
             src="{{ asset('assets/imgs/Banner2.jpg') }}"
             alt="Innovation background"
-            class="absolute inset-0 object-cover object-center"
+            class="absolute inset-0 w-full h-full object-cover object-center"
             loading="eager">
     </div>
 </div>
@@ -118,11 +118,11 @@
         </div>
     </div>
 </section> -->
-<section class="py-12 lg:py-20 bg-gray-300">
+<section class="py-8 sm:py-12 lg:py-20 bg-gray-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-6 font-tanishq-display">Shop by Category</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto font-tanishq">Explore our carefully curated collection of premium products across different categories</p>
+        <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-6 font-tanishq-display">Shop by Category</h2>
+            <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-tanishq px-4">Explore our carefully curated collection of premium products across different categories</p>
         </div>
 
         <!-- Desktop Layout: 2 + 2 -->
@@ -230,14 +230,14 @@
     </div>
 </section>
 <!-- Featured Products -->
-<section class="py-20 bg-white">
+<section class="py-12 sm:py-16 lg:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-6 font-tanishq-display">Featured Products</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto font-tanishq">Handpicked items that define style and elegance, carefully selected for you</p>
+        <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-6 font-tanishq-display">Featured Products</h2>
+            <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-tanishq px-4">Handpicked items that define style and elegance, carefully selected for you</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             @foreach($featuredProducts as $product)
             <div class="product-card">
                 <div class="relative overflow-hidden">
@@ -305,14 +305,14 @@
 </section>
 
 <!-- Latest Products -->
-<section class="py-16 bg-white">
+<section class="py-12 sm:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4 font-tanishq-display">Latest Arrivals</h2>
-            <p class="text-gray-600 font-tanishq">Fresh styles just added to our collection</p>
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4 font-tanishq-display">Latest Arrivals</h2>
+            <p class="text-base sm:text-lg text-gray-600 font-tanishq px-4">Fresh styles just added to our collection</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             @foreach($latestProducts as $product)
             <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group">
                 <div class="aspect-w-1 aspect-h-1">
@@ -370,22 +370,22 @@
 </section>
 
 <!-- Newsletter Section -->
-<section class="py-20 gradient-bg relative overflow-hidden">
+<section class="py-12 sm:py-16 lg:py-20 gradient-bg relative overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2016&q=80');"></div>
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-tanishq-display">Stay in the Loop</h2>
-        <p class="text-xl text-pink-100 mb-10 max-w-2xl mx-auto font-tanishq">Get the latest updates on new products, exclusive offers, and style tips delivered to your inbox</p>
-        <form class="max-w-lg mx-auto flex flex-col sm:flex-row gap-4">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 font-tanishq-display px-4">Stay in the Loop</h2>
+        <p class="text-base sm:text-lg md:text-xl text-pink-100 mb-6 sm:mb-10 max-w-2xl mx-auto font-tanishq px-4">Get the latest updates on new products, exclusive offers, and style tips delivered to your inbox</p>
+        <form class="max-w-lg mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4 px-4">
             <input type="email"
                 placeholder="Enter your email address"
-                class="flex-1 px-6 py-4 rounded-full focus:outline-none focus:ring-4 focus:ring-white/30 text-gray-900 placeholder-gray-500">
+                class="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full focus:outline-none focus:ring-4 focus:ring-white/30 text-gray-900 placeholder-gray-500 text-sm sm:text-base">
             <button type="submit"
-                class="bg-white text-pink-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                class="bg-white text-pink-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Subscribe Now
             </button>
         </form>
-        <p class="text-pink-200 text-sm mt-6">Join 10,000+ happy customers who get our updates</p>
+        <p class="text-pink-200 text-xs sm:text-sm mt-4 sm:mt-6 px-4">Join 10,000+ happy customers who get our updates</p>
     </div>
 
     <!-- Decorative Elements -->

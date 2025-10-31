@@ -4,9 +4,9 @@
 @section('description', $product->short_description)
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
     <!-- Breadcrumb -->
-    <nav class="flex mb-8" aria-label="Breadcrumb">
+    <nav class="flex mb-4 sm:mb-6 md:mb-8 overflow-x-auto" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
                 <a href="{{ route('home') }}" class="text-gray-700 hover:text-pink-600">Home</a>
@@ -38,15 +38,15 @@
         </ol>
     </nav>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
         <!-- Product Images -->
         @php
             $existingImages = $product->images()->get();
         @endphp
-        <div class="space-y-4" x-data="imageGallery()">
+        <div class="space-y-3 sm:space-y-4" x-data="imageGallery()">
             <!-- Main Image -->
             <div class="aspect-w-1 aspect-h-1">
-                <div class="w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
+                <div class="w-full h-64 sm:h-80 md:h-96 bg-gray-200 rounded-lg overflow-hidden">
                     @if($existingImages->count() > 0)
                         <img :src="selectedImage" :alt="$product->name" 
                              class="w-full h-full object-cover transition-all duration-300">
@@ -59,10 +59,10 @@
             
             <!-- Thumbnail Images -->
             @if($existingImages->count() > 0)
-            <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                 @foreach($existingImages as $index => $image)
                 <div class="aspect-w-1 aspect-h-1">
-                    <div class="w-full h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 hover:ring-2 hover:ring-pink-500"
+                    <div class="w-full h-16 sm:h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer transition-all duration-200 hover:ring-2 hover:ring-pink-500"
                          :class="{ 'ring-2 ring-pink-500': selectedImage === '{{ $image->image_url }}' }"
                          @click="selectImage('{{ $image->image_url }}')">
                         <img src="{{ $image->image_url }}" alt="{{ $image->alt_text }}" 
@@ -72,7 +72,7 @@
                 @endforeach
             </div>
             @else
-            <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                 @php
                     $placeholderImages = [
                         'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
@@ -94,18 +94,18 @@
         </div>
 
         <!-- Product Info -->
-        <div class="space-y-6">
+        <div class="space-y-4 sm:space-y-6">
             <!-- Brand & Title -->
             <div>
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-sm text-pink-600 font-semibold">{{ $product->brand->name }}</span>
+                <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                    <span class="text-xs sm:text-sm text-pink-600 font-semibold">{{ $product->brand->name }}</span>
                     @if($product->sale_price)
-                    <span class="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">
+                    <span class="bg-red-100 text-red-800 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full">
                         {{ $product->discount_percentage }}% OFF
                     </span>
                     @endif
                 </div>
-                <h1 class="text-3xl font-bold text-gray-900 mb-4 font-tanishq-display">{{ $product->name }}</h1>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 font-tanishq-display">{{ $product->name }}</h1>
             </div>
 
             <!-- Rating -->
@@ -121,12 +121,12 @@
             </div>
 
             <!-- Price -->
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3 sm:space-x-4 flex-wrap">
                 @if($product->sale_price)
-                <span class="text-4xl font-bold text-gray-900">₹{{ number_format($product->sale_price, 2) }}</span>
-                <span class="text-2xl text-gray-500 line-through">₹{{ number_format($product->price, 2) }}</span>
+                <span class="text-3xl sm:text-4xl font-bold text-gray-900">₹{{ number_format($product->sale_price, 2) }}</span>
+                <span class="text-xl sm:text-2xl text-gray-500 line-through">₹{{ number_format($product->price, 2) }}</span>
                 @else
-                <span class="text-4xl font-bold text-gray-900">₹{{ number_format($product->price, 2) }}</span>
+                <span class="text-3xl sm:text-4xl font-bold text-gray-900">₹{{ number_format($product->price, 2) }}</span>
                 @endif
             </div>
 
@@ -139,12 +139,12 @@
             <!-- Product Attributes -->
             @if($product->attributes)
             <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Product Details</h3>
-                <div class="grid grid-cols-2 gap-4">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">Product Details</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     @foreach($product->attributes as $key => $value)
                     <div>
-                        <span class="text-sm font-medium text-gray-700">{{ ucfirst(str_replace('_', ' ', $key)) }}:</span>
-                        <span class="text-sm text-gray-600 ml-2">{{ $value }}</span>
+                        <span class="text-xs sm:text-sm font-medium text-gray-700">{{ ucfirst(str_replace('_', ' ', $key)) }}:</span>
+                        <span class="text-xs sm:text-sm text-gray-600 ml-2">{{ $value }}</span>
                     </div>
                     @endforeach
                 </div>
@@ -182,7 +182,7 @@
                     <span class="text-sm text-gray-600">SKU: {{ $product->sku }}</span>
                 </div>
 
-                <div class="flex space-x-4">
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                     @if($product->isInStock())
                     <button onclick="addToCart()" 
                             class="flex-1 bg-pink-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-pink-700 transition-colors">
@@ -197,7 +197,7 @@
                     
                     @auth
                     <button onclick="toggleWishlist()" 
-                            class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                            class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center sm:inline-flex">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>

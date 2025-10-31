@@ -34,12 +34,12 @@
         </div>
 
         <!-- Chatbot Widget -->
-        <div id="chatbot-widget" class="fixed bottom-4 right-4 z-50">
+        <div id="chatbot-widget" class="fixed bottom-4 right-4 z-50 hidden sm:block">
             <!-- Chatbot will be loaded here by Vue.js -->
         </div>
 
         <!-- Notification Container -->
-        <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2">
+        <div id="notification-container" class="fixed top-16 sm:top-4 right-2 sm:right-4 left-2 sm:left-auto z-50 space-y-2 max-w-sm sm:max-w-md">
             <!-- Notifications will be loaded here by Vue.js -->
         </div>
 

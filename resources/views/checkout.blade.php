@@ -4,22 +4,22 @@
 @section('description', 'Complete your order with secure checkout.')
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
     <!-- Header -->
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Checkout</h1>
-        <p class="text-gray-600">Complete your order with secure checkout</p>
+    <div class="mb-6 sm:mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Checkout</h1>
+        <p class="text-sm sm:text-base text-gray-600">Complete your order with secure checkout</p>
     </div>
 
-    <form action="{{ route('checkout.store') }}" method="POST" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <form action="{{ route('checkout.store') }}" method="POST" class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         @csrf
         
         <!-- Checkout Form -->
-        <div class="lg:col-span-2 space-y-8">
+        <div class="lg:col-span-2 space-y-6 sm:space-y-8">
             <!-- Shipping Address -->
-            <div class="card p-6">
-                <h2 class="text-xl font-semibold text-gray-900 mb-6">Shipping Address</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="card p-4 sm:p-6">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Shipping Address</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
                         <input type="text" name="shipping_address[first_name]" required 
@@ -155,10 +155,10 @@
             </div>
         </div>
 
-        <!-- Order Summary -->
+            <!-- Order Summary -->
         <div class="lg:col-span-1">
-            <div class="card p-6 sticky top-8">
-                <h2 class="text-xl font-semibold text-gray-900 mb-6">Order Summary</h2>
+            <div class="card p-4 sm:p-6 sticky top-4 sm:top-8">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Order Summary</h2>
                 
                 <!-- Cart Items -->
                 <div class="space-y-4 mb-6">

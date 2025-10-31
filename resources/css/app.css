@@ -34,11 +34,23 @@
     /* Category pillar titles styling */
     .pillar-title {
         font-family: 'Playfair Display', serif;
-        font-size: 2rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: white;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+    }
+    
+    @media (min-width: 640px) {
+        .pillar-title {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .pillar-title {
+            font-size: 2rem;
+        }
     }
 }
 
@@ -89,6 +101,11 @@
 }
 
 @layer utilities {
+    /* Hide elements with x-cloak until Alpine.js loads */
+    [x-cloak] {
+        display: none !important;
+    }
+    
     .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;

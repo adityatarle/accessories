@@ -4,16 +4,16 @@
      :class="scrolled ? 'bg-white shadow-lg sticky top-0 text-gray-900' : 'bg-transparent absolute top-0 left-0 w-full text-white'"
      class="transition-all duration-300 w-full z-50">
     <!-- Top Bar -->
-    <div x-show="!scrolled" class="bg-transparent text-white py-2 transition-opacity duration-300">
+    <div x-show="!scrolled" class="bg-transparent text-white py-2 transition-opacity duration-300 hidden sm:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center text-sm">
-                <div class="flex items-center space-x-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm gap-2 sm:gap-0">
+                <div class="flex items-center space-x-2 sm:space-x-4">
                     <span>Free shipping on orders over ₹1000</span>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <span>Call: +91 9876543210</span>
-                    <span>|</span>
-                    <span>Email: info@accessoriesstore.com</span>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <span class="hidden md:inline">Call: +91 9876543210</span>
+                    <span class="hidden md:inline">|</span>
+                    <span class="text-xs sm:text-sm">Email: info@accessoriesstore.com</span>
                 </div>
             </div>
         </div>
@@ -21,11 +21,11 @@
 
     <!-- Main Navigation -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" :class="scrolled ? 'text-gray-900' : 'text-white'">
-        <div class="flex justify-between items-center h-16">
+        <div class="flex justify-between items-center h-16 gap-4">
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}" class="flex items-center group">
-                    <div class="text-3xl font-bold font-tanishq-display group-hover:scale-105 transition-transform duration-200" 
+                    <div class="text-xl sm:text-2xl md:text-3xl font-bold font-tanishq-display group-hover:scale-105 transition-transform duration-200" 
                          :class="scrolled ? 'text-gray-900' : 'text-white'">
                         <span :class="scrolled ? 'text-pink-600' : 'text-gradient'">Style</span><span :class="scrolled ? 'text-gray-900' : 'text-white'">Store</span>
                     </div>
@@ -33,8 +33,8 @@
             </div>
 
             <!-- Search Bar -->
-            <div class="flex-1 max-w-lg mx-8">
-                <form action="{{ route('shop') }}" method="GET" class="relative">
+            <div class="hidden md:flex flex-1 max-w-lg mx-4 lg:mx-8">
+                <form action="{{ route('shop') }}" method="GET" class="relative w-full">
                     <input type="text" 
                            name="search" 
                            value="{{ request('search') }}"
@@ -46,6 +46,17 @@
                         </svg>
                     </div>
                 </form>
+            </div>
+            
+            <!-- Mobile Search Button -->
+            <div class="md:hidden">
+                <button @click="open = !open" 
+                        :class="scrolled ? 'text-gray-700' : 'text-white'"
+                        class="p-2 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
             </div>
 
             <!-- Navigation Links -->
@@ -151,8 +162,31 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div x-show="open" class="md:hidden" :class="scrolled ? 'bg-white' : 'bg-transparent'">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t" :class="scrolled ? 'bg-white border-gray-200' : 'bg-transparent border-gray-700'">
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 transform -translate-y-1"
+         x-transition:enter-end="opacity-100 transform translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 transform translate-y-0"
+         x-transition:leave-end="opacity-0 transform -translate-y-1"
+         class="md:hidden" 
+         :class="scrolled ? 'bg-white' : 'bg-gray-900/95'">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t" :class="scrolled ? 'bg-white border-gray-200' : 'bg-gray-900/95 border-gray-700'">
+            <!-- Mobile Search -->
+            <div class="px-3 py-2 mb-2">
+                <form action="{{ route('shop') }}" method="GET" class="relative">
+                    <input type="text" 
+                           name="search" 
+                           value="{{ request('search') }}"
+                           placeholder="Search products..." 
+                           class="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </form>
+            </div>
             <a href="{{ route('home') }}" 
                :class="scrolled ? 'text-gray-700' : 'text-white'"
                class="block px-3 py-2 text-base font-medium hover:text-pink-600">Home</a>
@@ -165,12 +199,31 @@
             <a href="{{ route('about.index') }}" 
                :class="scrolled ? 'text-gray-700' : 'text-white'"
                class="block px-3 py-2 text-base font-medium hover:text-pink-600">About</a>
+            @guest
+            <div class="px-3 py-2 space-y-2 border-t mt-2 pt-2" :class="scrolled ? 'border-gray-200' : 'border-gray-700'">
+                <a href="{{ route('auth.unified') }}" 
+                   class="block w-full text-center px-4 py-2 text-sm font-medium rounded-lg border" 
+                   :class="scrolled ? 'text-gray-700 border-gray-300 hover:bg-gray-50' : 'text-white border-gray-600 hover:bg-gray-800'">
+                    Login
+                </a>
+                <a href="{{ route('auth.register') }}" 
+                   class="block w-full text-center px-4 py-2 text-sm font-medium rounded-lg bg-pink-600 text-white hover:bg-pink-700">
+                    Sign Up
+                </a>
+            </div>
+            @endguest
         </div>
     </div>
 
     <!-- Cart Dropdown -->
     <div x-show="cartOpen" @click.away="cartOpen = false" 
-         class="absolute right-0 mt-2 w-96 bg-white rounded-lg shadow-lg border z-50">
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 transform scale-95"
+         x-transition:enter-end="opacity-100 transform scale-100"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 transform scale-100"
+         x-transition:leave-end="opacity-0 transform scale-95"
+         class="fixed md:absolute right-2 md:right-0 top-16 md:top-full mt-2 w-[calc(100vw-1rem)] md:w-96 max-w-sm bg-white rounded-lg shadow-lg border z-50">
         <div class="p-4">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-lg font-semibold">Shopping Cart</h3>

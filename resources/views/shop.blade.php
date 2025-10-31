@@ -17,25 +17,25 @@
     <div class="absolute inset-0 bg-black/60"></div>
 
     {{-- Content --}}
-    <div class="relative z-10 flex min-h-[60vh] items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div class="relative z-10 flex min-h-[50vh] sm:min-h-[60vh] items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div class="mx-auto text-center max-w-4xl">
-            <h1 class="text-4xl font-bold leading-tight md:text-6xl text-white font-tanishq-display mb-6">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white font-tanishq-display mb-4 sm:mb-6">
                 Discover Our
                 <span class="block text-yellow-300">Premium Collection</span>
             </h1>
 
-            <p class="mx-auto mt-6 text-lg text-pink-100 md:text-xl font-tanishq">
+            <p class="mx-auto mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-pink-100 font-tanishq px-4">
                 Browse through our carefully curated selection of premium accessories, cosmetics, and fashion items.
                 Find the perfect pieces to express your unique style.
             </p>
 
-            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
                 <a href="#products"
-                    class="rounded-full bg-white px-8 py-3 font-bold text-pink-600 text-lg shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
+                    class="rounded-full bg-white px-6 sm:px-8 py-2 sm:py-3 font-bold text-pink-600 text-base sm:text-lg shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
                     Explore Products
                 </a>
                 <a href="{{ route('categories.index') }}"
-                    class="rounded-full border-2 border-white px-8 py-3 font-bold text-white text-lg transition-all hover:bg-white hover:text-pink-600 hover:scale-105">
+                    class="rounded-full border-2 border-white px-6 sm:px-8 py-2 sm:py-3 font-bold text-white text-base sm:text-lg transition-all hover:bg-white hover:text-pink-600 hover:scale-105">
                     Browse Categories
                 </a>
             </div>
@@ -43,16 +43,37 @@
     </div>
 </section>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="products">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8" id="products">
     <!-- Header -->
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4 font-tanishq-display">Shop All Products</h1>
-        <p class="text-gray-600 font-tanishq">Discover our complete collection of premium accessories and cosmetics</p>
+    <div class="mb-6 sm:mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4 font-tanishq-display">Shop All Products</h1>
+        <p class="text-sm sm:text-base text-gray-600 font-tanishq">Discover our complete collection of premium accessories and cosmetics</p>
     </div>
 
-    <div class="flex flex-col lg:flex-row gap-8">
+    <div class="flex flex-col lg:flex-row gap-6 sm:gap-8">
         <!-- Sidebar Filters -->
-        <div class="lg:w-1/4">
+        <div class="lg:w-1/4" x-data="{ filtersOpen: false }" x-init="filtersOpen = window.innerWidth >= 1024">
+            <!-- Mobile Filter Toggle -->
+            <div class="lg:hidden mb-4">
+                <button @click="filtersOpen = !filtersOpen" 
+                        class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-4 rounded-lg flex items-center justify-between transition-colors">
+                    <span>Filters</span>
+                    <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': filtersOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Filters Panel -->
+            <div x-show="filtersOpen" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 transform -translate-y-2"
+                 x-transition:enter-end="opacity-100 transform translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 transform translate-y-0"
+                 x-transition:leave-end="opacity-0 transform -translate-y-2"
+                 class="lg:block"
+                 x-cloak>
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Filters</h3>
                 
@@ -139,11 +160,11 @@
         <!-- Products Grid -->
         <div class="lg:w-3/4">
             <!-- Results Header -->
-            <div class="flex justify-between items-center mb-6">
-                <p class="text-gray-600">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
+                <p class="text-sm sm:text-base text-gray-600">
                     Showing {{ $products->firstItem() ?? 0 }} to {{ $products->lastItem() ?? 0 }} of {{ $products->total() }} results
                 </p>
-                <div class="flex items-center space-x-2">
+                <div class="hidden sm:flex items-center space-x-2">
                     <span class="text-sm text-gray-700">View:</span>
                     <button class="p-2 bg-gray-100 rounded-lg">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
