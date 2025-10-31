@@ -39,7 +39,7 @@
     <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-                <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ $category->name }}</h1>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2 font-tanishq-display">{{ $category->name }}</h1>
                 <p class="text-gray-600">{{ $products->total() }} {{ Str::plural('product', $products->total()) }} found</p>
             </div>
             <div class="mt-4 md:mt-0">
@@ -59,7 +59,7 @@
             <a href="{{ route('product.show', $product) }}" class="block">
                 <!-- Product Image -->
                 <div class="aspect-w-1 aspect-h-1 bg-gray-200 relative overflow-hidden">
-                    @if($product->images && $product->images->count() > 0)
+                    @if($product->images && count($product->images) > 0)
                         <img src="{{ $product->main_image_url }}" alt="{{ $product->name }}" 
                              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
                     @else
@@ -72,7 +72,7 @@
                 
                 <!-- Product Info -->
                 <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors line-clamp-2">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors line-clamp-2 font-tanishq">
                         {{ $product->name }}
                     </h3>
                     <p class="text-sm text-gray-500 mb-2">{{ $product->brand->name ?? 'Brand' }}</p>

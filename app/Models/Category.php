@@ -37,6 +37,24 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
+    /**
+     * Resolve a public URL for the category image, supporting external URLs and storage paths.
+     */
+    public function getImageUrlAttribute(): ?string
+    {
+        if (empty($this->image)) {
+            return null;
+        }
+
+        // If already an absolute URL, return as-is
+        if (filter_var($this->image, FILTER_VALIDATE_URL)) {
+            return $this->image;
+        }
+
+        // Otherwise assume it's a path on the public disk
+        return asset('storage/' . ltrim($this->image, '/'));
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';

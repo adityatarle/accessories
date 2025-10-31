@@ -1,6 +1,10 @@
-<nav x-data="{ open: false, cartOpen: false }" class="bg-white shadow-lg sticky top-0 z-40">
+<nav x-data="{ open: false, cartOpen: false, scrolled: false }" 
+     @scroll.window="scrolled = window.scrollY > 50"
+     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+     :class="scrolled ? 'bg-white shadow-lg sticky top-0 text-gray-900' : 'bg-transparent absolute top-0 left-0 w-full text-white'"
+     class="transition-all duration-300 w-full z-50">
     <!-- Top Bar -->
-    <div class="bg-gray-900 text-white py-2">
+    <div x-show="!scrolled" class="bg-transparent text-white py-2 transition-opacity duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center text-sm">
                 <div class="flex items-center space-x-4">
@@ -16,13 +20,14 @@
     </div>
 
     <!-- Main Navigation -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" :class="scrolled ? 'text-gray-900' : 'text-white'">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}" class="flex items-center group">
-                    <div class="text-3xl font-bold text-gray-900 group-hover:scale-105 transition-transform duration-200">
-                        <span class="text-gradient">Style</span><span class="text-gray-900">Store</span>
+                    <div class="text-3xl font-bold font-tanishq-display group-hover:scale-105 transition-transform duration-200" 
+                         :class="scrolled ? 'text-gray-900' : 'text-white'">
+                        <span :class="scrolled ? 'text-pink-600' : 'text-gradient'">Style</span><span :class="scrolled ? 'text-gray-900' : 'text-white'">Store</span>
                     </div>
                 </a>
             </div>
@@ -46,19 +51,23 @@
             <!-- Navigation Links -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ route('home') }}" 
-                   class="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors">
+                   :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                   class="px-3 py-2 text-sm font-medium transition-colors">
                     Home
                 </a>
                 <a href="{{ route('shop') }}" 
-                   class="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors">
+                   :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                   class="px-3 py-2 text-sm font-medium transition-colors">
                     Shop
                 </a>
                 <a href="{{ route('categories.index') }}" 
-                   class="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors">
+                   :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                   class="px-3 py-2 text-sm font-medium transition-colors">
                     Categories
                 </a>
                 <a href="{{ route('about.index') }}" 
-                   class="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors">
+                   :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                   class="px-3 py-2 text-sm font-medium transition-colors">
                     About
                 </a>
             </div>
@@ -68,7 +77,8 @@
                 <!-- Wishlist -->
                 @auth
                 <a href="{{ route('wishlist.index') }}" 
-                   class="text-gray-700 hover:text-pink-600 p-2 relative">
+                   :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                   class="p-2 relative transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                     </svg>
@@ -77,7 +87,8 @@
 
                 <!-- Cart -->
                 <button @click="cartOpen = !cartOpen" 
-                        class="text-gray-700 hover:text-pink-600 p-2 relative">
+                        :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                        class="p-2 relative transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"></path>
                     </svg>
@@ -88,14 +99,15 @@
                 @auth
                 <div class="relative" x-data="{ open: false }">
                     <button @click="open = !open" 
-                            class="flex items-center text-gray-700 hover:text-pink-600 p-2">
+                            :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                            class="flex items-center p-2 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </button>
                     
                     <div x-show="open" @click.away="open = false" 
-                         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                         class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
                         <a href="{{ route('profile.edit') }}" 
                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
                         <a href="{{ route('orders.index') }}" 
@@ -114,7 +126,8 @@
                 @else
                 <div class="flex items-center space-x-2">
                     <a href="{{ route('auth.unified') }}" 
-                       class="text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors">
+                       :class="scrolled ? 'text-gray-700 hover:text-pink-600' : 'text-white hover:text-pink-600'"
+                       class="px-3 py-2 text-sm font-medium transition-colors">
                         Login
                     </a>
                     <a href="{{ route('auth.register') }}" 
@@ -125,7 +138,9 @@
                 @endauth
 
                 <!-- Mobile Menu Button -->
-                <button @click="open = !open" class="md:hidden p-2">
+                <button @click="open = !open" 
+                        :class="scrolled ? 'text-gray-700' : 'text-white'"
+                        class="md:hidden p-2 transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': !open}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         <path :class="{'hidden': !open, 'inline-flex': open}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -136,16 +151,20 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div x-show="open" class="md:hidden">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+    <div x-show="open" class="md:hidden" :class="scrolled ? 'bg-white' : 'bg-transparent'">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t" :class="scrolled ? 'bg-white border-gray-200' : 'bg-transparent border-gray-700'">
             <a href="{{ route('home') }}" 
-               class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600">Home</a>
+               :class="scrolled ? 'text-gray-700' : 'text-white'"
+               class="block px-3 py-2 text-base font-medium hover:text-pink-600">Home</a>
             <a href="{{ route('shop') }}" 
-               class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600">Shop</a>
+               :class="scrolled ? 'text-gray-700' : 'text-white'"
+               class="block px-3 py-2 text-base font-medium hover:text-pink-600">Shop</a>
             <a href="{{ route('categories.index') }}" 
-               class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600">Categories</a>
+               :class="scrolled ? 'text-gray-700' : 'text-white'"
+               class="block px-3 py-2 text-base font-medium hover:text-pink-600">Categories</a>
             <a href="{{ route('about.index') }}" 
-               class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600">About</a>
+               :class="scrolled ? 'text-gray-700' : 'text-white'"
+               class="block px-3 py-2 text-base font-medium hover:text-pink-600">About</a>
         </div>
     </div>
 

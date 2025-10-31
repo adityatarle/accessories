@@ -105,7 +105,7 @@
                     </span>
                     @endif
                 </div>
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ $product->name }}</h1>
+                <h1 class="text-3xl font-bold text-gray-900 mb-4 font-tanishq-display">{{ $product->name }}</h1>
             </div>
 
             <!-- Rating -->
@@ -235,7 +235,7 @@
 
     <!-- Product Reviews -->
     <div class="mt-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Customer Reviews</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 font-tanishq-display">Customer Reviews</h2>
         
         @if($product->reviews->count() > 0)
         <div class="space-y-6">
@@ -277,13 +277,13 @@
     <!-- Related Products -->
     @if($relatedProducts->count() > 0)
     <div class="mt-16">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Products</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 font-tanishq-display">Related Products</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($relatedProducts as $relatedProduct)
             <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group">
                 <div class="aspect-w-1 aspect-h-1">
                     <div class="w-full h-64 bg-gray-200 rounded-t-lg overflow-hidden">
-                        @if($relatedProduct->images && $relatedProduct->images->count() > 0)
+                        @if($relatedProduct->images && count($relatedProduct->images) > 0)
                             <img src="{{ $relatedProduct->main_image_url }}" alt="{{ $relatedProduct->name }}" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         @else
@@ -301,7 +301,7 @@
                         </span>
                         @endif
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 font-tanishq">
                         {{ $relatedProduct->name }}
                     </h3>
                     <div class="flex items-center justify-between mb-4">

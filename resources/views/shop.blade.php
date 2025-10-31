@@ -4,11 +4,50 @@
 @section('description', 'Browse our complete collection of accessories, cosmetics, jewelry, and fashion items.')
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-gray-900">
+    {{-- Background Image --}}
+    <img
+        src="{{ asset('assets/imgs/Hero.jpg') }}"
+        alt="Shop Hero background"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager">
+
+    {{-- Dark overlay --}}
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    {{-- Content --}}
+    <div class="relative z-10 flex min-h-[60vh] items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto text-center max-w-4xl">
+            <h1 class="text-4xl font-bold leading-tight md:text-6xl text-white font-tanishq-display mb-6">
+                Discover Our
+                <span class="block text-yellow-300">Premium Collection</span>
+            </h1>
+
+            <p class="mx-auto mt-6 text-lg text-pink-100 md:text-xl font-tanishq">
+                Browse through our carefully curated selection of premium accessories, cosmetics, and fashion items.
+                Find the perfect pieces to express your unique style.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#products"
+                    class="rounded-full bg-white px-8 py-3 font-bold text-pink-600 text-lg shadow-lg transition-all hover:bg-gray-100 hover:scale-105">
+                    Explore Products
+                </a>
+                <a href="{{ route('categories.index') }}"
+                    class="rounded-full border-2 border-white px-8 py-3 font-bold text-white text-lg transition-all hover:bg-white hover:text-pink-600 hover:scale-105">
+                    Browse Categories
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="products">
     <!-- Header -->
     <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">Shop All Products</h1>
-        <p class="text-gray-600">Discover our complete collection of premium accessories and cosmetics</p>
+        <h1 class="text-3xl font-bold text-gray-900 mb-4 font-tanishq-display">Shop All Products</h1>
+        <p class="text-gray-600 font-tanishq">Discover our complete collection of premium accessories and cosmetics</p>
     </div>
 
     <div class="flex flex-col lg:flex-row gap-8">
@@ -125,7 +164,7 @@
                 <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group">
                     <div class="aspect-w-1 aspect-h-1">
                         <div class="w-full h-64 bg-gray-200 rounded-t-lg overflow-hidden">
-                            @if($product->images && $product->images->count() > 0)
+                            @if($product->images && count($product->images) > 0)
                                 <img src="{{ $product->main_image_url }}" alt="{{ $product->name }}" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             @else
@@ -143,7 +182,7 @@
                             </span>
                             @endif
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 font-tanishq">
                             {{ $product->name }}
                         </h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2">

@@ -19,9 +19,12 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
 
+        // Fetch only category names from database (no images, just names)
         $categories = Category::where('is_active', true)
+            ->select('id', 'name', 'slug')
             ->orderBy('sort_order')
-            ->limit(6)
+            ->orderBy('name')
+            ->limit(4)
             ->get();
 
         $brands = Brand::where('is_active', true)

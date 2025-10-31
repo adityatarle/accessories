@@ -11,7 +11,13 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
+
+// Storage files route (fallback for Windows/XAMPP symlink issues)
+Route::get('/storage/{path}', [StorageController::class, 'serve'])
+    ->where('path', '.*')
+    ->name('storage.serve');
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');

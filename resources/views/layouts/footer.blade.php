@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Company Info -->
             <div>
-                <div class="text-2xl font-bold mb-4">
+                <div class="text-2xl font-bold mb-4 font-tanishq-display">
                     <span class="text-pink-600">Style</span>Store
                 </div>
                 <p class="text-gray-300 mb-4">
@@ -36,7 +36,7 @@
 
             <!-- Quick Links -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-4 font-tanishq">Quick Links</h3>
                 <ul class="space-y-2">
                     <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-pink-600 transition-colors">Home</a></li>
                     <li><a href="{{ route('shop') }}" class="text-gray-300 hover:text-pink-600 transition-colors">Shop</a></li>
@@ -48,7 +48,7 @@
 
             <!-- Customer Service -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                <h3 class="text-lg font-semibold mb-4 font-tanishq">Customer Service</h3>
                 <ul class="space-y-2">
                     <li><a href="#" class="text-gray-300 hover:text-pink-600 transition-colors">Contact Us</a></li>
                     <li><a href="#" class="text-gray-300 hover:text-pink-600 transition-colors">Shipping Info</a></li>
@@ -60,7 +60,7 @@
 
             <!-- Newsletter -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Stay Updated</h3>
+                <h3 class="text-lg font-semibold mb-4 font-tanishq">Stay Updated</h3>
                 <p class="text-gray-300 mb-4">
                     Subscribe to our newsletter for the latest updates and exclusive offers.
                 </p>

@@ -7,8 +7,8 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header -->
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Shop by Category</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4 font-tanishq-display">Shop by Category</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto font-tanishq">
             Discover our carefully curated collection of accessories, cosmetics, and jewelry organized by category
         </p>
     </div>
@@ -18,7 +18,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         @foreach($categories as $category)
         <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <a href="{{ route('categories.show', $category) }}" class="block">
+            <a href="{{ route('shop', ['category' => $category->id]) }}" class="block">
                 <!-- Category Image -->
                 @php
                     $categoryImages = [
@@ -42,7 +42,7 @@
                 
                 <!-- Category Info -->
                 <div class="p-6">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors font-tanishq">
                         {{ $category->name }}
                     </h3>
                     <p class="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -65,7 +65,7 @@
     <!-- Call to Action -->
     <div class="mt-16 text-center">
         <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Can't find what you're looking for?</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 font-tanishq-display">Can't find what you're looking for?</h2>
             <p class="text-gray-600 mb-6">Browse all our products or use our search to find exactly what you need.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('shop') }}" 

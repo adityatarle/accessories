@@ -12,7 +12,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                fraunces: ['Fraunces', 'serif'],
+                cormorant: ['Cormorant Garamond', 'serif'],
+                playfair: ['Playfair Display', 'serif'],
+                tanishq: ['Cormorant Garamond', 'serif'],
+                'tanishq-display': ['Playfair Display', 'serif'],
             },
         },
     },
