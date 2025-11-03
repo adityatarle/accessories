@@ -44,11 +44,11 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors duration-200;
+        @apply bg-gray-900 text-white px-6 py-3 text-sm font-light tracking-wide uppercase transition-all duration-300 hover:bg-gray-800;
     }
 
     .btn-secondary {
-        @apply bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-200;
+        @apply border border-gray-900 text-gray-900 px-6 py-3 text-sm font-light tracking-wide uppercase transition-all duration-300 hover:bg-gray-900 hover:text-white;
     }
 
     .card {
@@ -56,7 +56,7 @@
     }
 
     .input-field {
-        @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent;
+        @apply w-full px-4 py-3 border border-gray-300 bg-white text-gray-900 text-sm focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-gray-400 font-light;
     }
 
     .product-card {

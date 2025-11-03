@@ -47,20 +47,22 @@ class ProductController extends Controller
 
         // Sorting
         $sortBy = $request->get('sort', 'name');
-        $sortOrder = $request->get('order', 'asc');
         
         switch ($sortBy) {
             case 'price':
-                $query->orderBy('price', $sortOrder);
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
                 break;
             case 'created_at':
-                $query->orderBy('created_at', $sortOrder);
+                $query->orderBy('created_at', 'desc');
                 break;
             case 'rating':
-                $query->orderBy('rating', $sortOrder);
+                $query->orderBy('rating', 'desc');
                 break;
             default:
-                $query->orderBy('name', $sortOrder);
+                $query->orderBy('name', 'asc');
         }
 
         $products = $query->paginate(12);

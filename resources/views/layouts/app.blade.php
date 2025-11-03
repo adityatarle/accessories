@@ -21,7 +21,7 @@
         <!-- Additional CSS -->
         @stack('styles')
     </head>
-    <body class="font-sans antialiased bg-gray-50">
+    <body class="font-sans antialiased bg-white">
         <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
@@ -42,6 +42,9 @@
         <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2">
             <!-- Notifications will be loaded here by Vue.js -->
         </div>
+
+        <!-- Alpine.js -->
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <!-- Additional JS -->
         @stack('scripts')

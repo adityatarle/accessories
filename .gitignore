@@ -22,3 +22,7 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Database dumps (should not be in repository)
+*.sql
+accessories_ecom.sql
