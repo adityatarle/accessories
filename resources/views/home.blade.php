@@ -231,6 +231,166 @@
 
     </div>
 </section>
+
+<!-- Language of Flowers Section -->
+<section class="relative overflow-hidden bg-[#fafaf8]">
+    <div class="flex flex-col lg:flex-row min-h-[75vh]">
+        <!-- Left: Text Content -->
+        <div class="flex-1 flex items-center justify-center p-12 md:p-16 lg:p-20 bg-white">
+            <div class="text-center max-w-lg">
+                <div class="mb-6">
+                    <svg class="w-12 h-12 mx-auto text-[#d4a574]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-gray-800 font-tanishq-display mb-6 tracking-tight">
+                    Language of
+                    <span class="block mt-2">Flowers</span>
+                </h2>
+                <p class="mt-6 text-base text-gray-600 font-light leading-relaxed italic">
+                    "Ceremonial Indian flowers transcend seasons"
+                </p>
+                <p class="mt-4 text-sm text-gray-500 font-light leading-relaxed">
+                    Bring home porcelain platters and fine bone china that celebrate their enduring beauty all year long.
+                </p>
+                <a href="{{ route('shop') }}"
+                    class="mt-8 inline-block px-10 py-3 border border-gray-800 text-gray-800 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-gray-800 hover:text-white">
+                    Discover
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Full Image -->
+        <div class="relative flex-1 overflow-hidden min-h-[400px] lg:min-h-0">
+            <img
+                src="{{ asset('assets/imgs/tea-black-tea-with-turkish-delight-dried-flowers-teapot-tray.jpg') }}"
+                alt="Language of Flowers"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- The Gift Section - Three Column -->
+<section class="relative overflow-hidden bg-white py-0">
+    <div class="flex flex-col md:flex-row min-h-[75vh]">
+        <!-- Left Image -->
+        <div class="relative flex-1 overflow-hidden min-h-[350px] md:min-h-0">
+            <img
+                src="{{ asset('assets/imgs/cup-candles-vase-with-protea-flowers-knitted-element-room-blurred-background.jpg') }}"
+                alt="Artisan Crafts"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy">
+        </div>
+
+        <!-- Center: Text Overlay -->
+        <div class="relative flex-1 flex items-center justify-center p-12 md:p-16 bg-[#e8e5e0]">
+            <div class="text-center max-w-md">
+                <h2 class="text-xl md:text-2xl font-light tracking-[0.25em] uppercase mb-6 text-gray-700">
+                    The Gift Of
+                </h2>
+                <div class="mb-6">
+                    <svg class="w-10 h-10 mx-auto text-[#d4a574]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-light font-tanishq-display mb-6 tracking-tight text-gray-800">
+                    StyleStore
+                </h3>
+                <p class="text-sm font-light leading-relaxed text-gray-600 mb-2 italic">
+                    "Nature-inspired designs that evoke floral splendour"
+                </p>
+                <p class="text-xs font-light leading-relaxed text-gray-500 mb-8">
+                    Make everyday moments feel a little more special.
+                </p>
+                <a href="{{ route('shop') }}"
+                    class="inline-block px-10 py-3 border border-gray-800 text-gray-800 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-gray-800 hover:text-white">
+                    Gifting
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="relative flex-1 overflow-hidden min-h-[350px] md:min-h-0">
+            <img
+                src="{{ asset('assets/imgs/flower-vase-modern-interior.jpg') }}"
+                alt="Home Decor"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Traditional Heritage Section -->
+<section class="relative overflow-hidden bg-[#f5f3f0]">
+    <div class="flex flex-col lg:flex-row-reverse min-h-[75vh]">
+        <!-- Right: Text Content -->
+        <div class="flex-1 flex items-center justify-center p-12 md:p-16 lg:p-20">
+            <div class="text-center max-w-lg">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-gray-800 font-tanishq-display mb-6 tracking-tight">
+                    Timeless
+                    <span class="block mt-2">Traditions</span>
+                </h2>
+                <p class="mt-6 text-base text-gray-600 font-light leading-relaxed italic">
+                    "Every piece tells a story of heritage and artistry"
+                </p>
+                <p class="mt-4 text-sm text-gray-500 font-light leading-relaxed">
+                    Experience the warmth of traditional craftsmanship. From ornate mirrors to hand-painted ceramics, discover treasures that transcend time.
+                </p>
+                <a href="{{ route('shop') }}"
+                    class="mt-8 inline-block px-10 py-3 border border-gray-800 text-gray-800 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-gray-800 hover:text-white">
+                    Explore Collection
+                </a>
+            </div>
+        </div>
+
+        <!-- Left: Full Image -->
+        <div class="relative flex-1 overflow-hidden min-h-[400px] lg:min-h-0">
+            <img
+                src="{{ asset('assets/imgs/still-life-vintage-objects.jpg') }}"
+                alt="Timeless Traditions"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Coffee Culture Section - Full Width Banner -->
+<section class="relative overflow-hidden bg-[#2c2825]">
+    <div class="relative h-[65vh] md:h-[75vh]">
+        <img
+            src="{{ asset('assets/imgs/traditional-turkish-coffee-side-view.jpg') }}"
+            alt="Coffee Culture"
+            class="absolute inset-0 w-full h-full object-cover opacity-50"
+            loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2c2825]/30 to-[#2c2825]/70"></div>
+        
+        <div class="relative z-10 h-full flex items-center justify-center px-4">
+            <div class="text-center max-w-3xl text-white">
+                <div class="mb-6">
+                    <svg class="w-10 h-10 mx-auto text-[#d4a574]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-light leading-tight font-tanishq-display mb-6 tracking-tight">
+                    The Art of
+                    <span class="block mt-3">Coffee & Tea</span>
+                </h2>
+                <p class="text-base md:text-lg font-light leading-relaxed mb-2 max-w-2xl mx-auto italic">
+                    "Transform every pour into a ceremony"
+                </p>
+                <p class="text-sm font-light leading-relaxed opacity-80 mb-10 max-w-xl mx-auto">
+                    Discover our exquisite collection of serveware that makes every sip a moment of pure indulgence.
+                </p>
+                <a href="{{ route('shop') }}"
+                    class="inline-block px-12 py-3 bg-white text-gray-900 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-[#d4a574] hover:text-white">
+                    Shop The Collection
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Featured Products -->
 <section class="py-20 bg-[#fafafa]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -245,8 +405,16 @@
                 <!-- Product Image -->
                 <div class="relative overflow-hidden aspect-[3/4] bg-gray-50 mb-5">
                     <a href="{{ route('product.show', $product) }}" class="block h-full">
-                        <img src="{{ $product->main_image_url }}" alt="{{ $product->name }}"
-                            class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-90">
+                        @php
+                            $placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1066'%3E%3Crect fill='%23EAEAEA' width='800' height='1066'/%3E%3Ctext fill='%23999999' font-family='sans-serif' font-size='20' dy='10.5' font-weight='bold' x='50%25' y='50%25' text-anchor='middle'%3ELoading...%3C/text%3E%3C/svg%3E";
+                            $errorPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1066'%3E%3Crect fill='%23EAEAEA' width='800' height='1066'/%3E%3Ctext fill='%23999999' font-family='sans-serif' font-size='20' dy='10.5' font-weight='bold' x='50%25' y='50%25' text-anchor='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
+                        @endphp
+                        <img src="{{ $placeholderImage }}" 
+                             data-src="{{ $product->main_image_url }}" 
+                             alt="{{ $product->name }}"
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='{{ $errorPlaceholder }}';"
+                             class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-90">
                     </a>
                 </div>
                 
@@ -302,8 +470,16 @@
                 <!-- Product Image -->
                 <div class="relative overflow-hidden aspect-[3/4] bg-gray-50 mb-5">
                     <a href="{{ route('product.show', $product) }}" class="block h-full">
-                        <img src="{{ $product->main_image_url }}" alt="{{ $product->name }}"
-                            class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-90">
+                        @php
+                            $placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1066'%3E%3Crect fill='%23EAEAEA' width='800' height='1066'/%3E%3Ctext fill='%23999999' font-family='sans-serif' font-size='20' dy='10.5' font-weight='bold' x='50%25' y='50%25' text-anchor='middle'%3ELoading...%3C/text%3E%3C/svg%3E";
+                            $errorPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1066'%3E%3Crect fill='%23EAEAEA' width='800' height='1066'/%3E%3Ctext fill='%23999999' font-family='sans-serif' font-size='20' dy='10.5' font-weight='bold' x='50%25' y='50%25' text-anchor='middle'%3ENo Image%3C/text%3E%3C/svg%3E";
+                        @endphp
+                        <img src="{{ $placeholderImage }}" 
+                             data-src="{{ $product->main_image_url }}" 
+                             alt="{{ $product->name }}"
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='{{ $errorPlaceholder }}';"
+                             class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-90">
                     </a>
                 </div>
                 
@@ -363,8 +539,37 @@
 
 @push('scripts')
 <script>
-    // Add to bag functionality - Good Earth Style
+    // Image placeholder lazy loading
     document.addEventListener('DOMContentLoaded', function() {
+        // Load images with placeholders
+        const productImages = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        const tempImg = new Image();
+                        tempImg.onload = function() {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        };
+                        tempImg.onerror = function() {
+                            // Keep placeholder if image fails to load
+                            img.onerror = null;
+                        };
+                        tempImg.src = img.dataset.src;
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+        
+        productImages.forEach(img => imageObserver.observe(img));
+        
+        // Add to bag functionality - Good Earth Style
         const addToBagButtons = document.querySelectorAll('.add-to-bag');
         
         addToBagButtons.forEach(button => {
