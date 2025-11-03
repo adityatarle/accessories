@@ -234,7 +234,7 @@
 
 <!-- Language of Flowers Section -->
 <section class="relative overflow-hidden bg-[#fafaf8]">
-    <div class="flex flex-col lg:flex-row min-h-[75vh]">
+    <div class="flex flex-col lg:flex-row min-h-[500px] md:min-h-[550px] lg:min-h-[600px] max-h-[700px]">
         <!-- Left: Text Content -->
         <div class="flex-1 flex items-center justify-center p-12 md:p-16 lg:p-20 bg-white">
             <div class="text-center max-w-lg">
@@ -261,25 +261,25 @@
         </div>
 
         <!-- Right: Full Image -->
-        <div class="relative flex-1 overflow-hidden min-h-[400px] lg:min-h-0">
+        <div class="relative flex-1 overflow-hidden">
             <img
                 src="{{ asset('assets/imgs/tea-black-tea-with-turkish-delight-dried-flowers-teapot-tray.jpg') }}"
                 alt="Language of Flowers"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="w-full h-full object-cover object-center"
                 loading="lazy">
         </div>
     </div>
 </section>
 
 <!-- The Gift Section - Three Column -->
-<section class="relative overflow-hidden bg-white py-0">
-    <div class="flex flex-col md:flex-row min-h-[75vh]">
+<section class="relative overflow-hidden bg-white">
+    <div class="flex flex-col md:flex-row min-h-[450px] md:min-h-[500px] lg:min-h-[600px] max-h-[700px]">
         <!-- Left Image -->
-        <div class="relative flex-1 overflow-hidden min-h-[350px] md:min-h-0">
+        <div class="relative flex-1 overflow-hidden">
             <img
                 src="{{ asset('assets/imgs/cup-candles-vase-with-protea-flowers-knitted-element-room-blurred-background.jpg') }}"
                 alt="Artisan Crafts"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="w-full h-full object-cover object-center"
                 loading="lazy">
         </div>
 
@@ -311,11 +311,11 @@
         </div>
 
         <!-- Right Image -->
-        <div class="relative flex-1 overflow-hidden min-h-[350px] md:min-h-0">
+        <div class="relative flex-1 overflow-hidden">
             <img
                 src="{{ asset('assets/imgs/flower-vase-modern-interior.jpg') }}"
                 alt="Home Decor"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="w-full h-full object-cover object-center"
                 loading="lazy">
         </div>
     </div>
@@ -323,7 +323,7 @@
 
 <!-- Traditional Heritage Section -->
 <section class="relative overflow-hidden bg-[#f5f3f0]">
-    <div class="flex flex-col lg:flex-row-reverse min-h-[75vh]">
+    <div class="flex flex-col lg:flex-row-reverse min-h-[500px] md:min-h-[550px] lg:min-h-[600px] max-h-[700px]">
         <!-- Right: Text Content -->
         <div class="flex-1 flex items-center justify-center p-12 md:p-16 lg:p-20">
             <div class="text-center max-w-lg">
@@ -345,48 +345,46 @@
         </div>
 
         <!-- Left: Full Image -->
-        <div class="relative flex-1 overflow-hidden min-h-[400px] lg:min-h-0">
+        <div class="relative flex-1 overflow-hidden">
             <img
                 src="{{ asset('assets/imgs/still-life-vintage-objects.jpg') }}"
                 alt="Timeless Traditions"
-                class="absolute inset-0 w-full h-full object-cover"
+                class="w-full h-full object-cover object-center"
                 loading="lazy">
         </div>
     </div>
 </section>
 
 <!-- Coffee Culture Section - Full Width Banner -->
-<section class="relative overflow-hidden bg-[#2c2825]">
-    <div class="relative h-[65vh] md:h-[75vh]">
-        <img
-            src="{{ asset('assets/imgs/traditional-turkish-coffee-side-view.jpg') }}"
-            alt="Coffee Culture"
-            class="absolute inset-0 w-full h-full object-cover opacity-50"
-            loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2c2825]/30 to-[#2c2825]/70"></div>
-        
-        <div class="relative z-10 h-full flex items-center justify-center px-4">
-            <div class="text-center max-w-3xl text-white">
-                <div class="mb-6">
-                    <svg class="w-10 h-10 mx-auto text-[#d4a574]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                </div>
-                <h2 class="text-3xl md:text-5xl lg:text-6xl font-light leading-tight font-tanishq-display mb-6 tracking-tight">
-                    The Art of
-                    <span class="block mt-3">Coffee & Tea</span>
-                </h2>
-                <p class="text-base md:text-lg font-light leading-relaxed mb-2 max-w-2xl mx-auto italic">
-                    "Transform every pour into a ceremony"
-                </p>
-                <p class="text-sm font-light leading-relaxed opacity-80 mb-10 max-w-xl mx-auto">
-                    Discover our exquisite collection of serveware that makes every sip a moment of pure indulgence.
-                </p>
-                <a href="{{ route('shop') }}"
-                    class="inline-block px-12 py-3 bg-white text-gray-900 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-[#d4a574] hover:text-white">
-                    Shop The Collection
-                </a>
+<section class="relative overflow-hidden bg-[#2c2825] h-[500px] md:h-[600px] lg:h-[650px]">
+    <img
+        src="{{ asset('assets/imgs/traditional-turkish-coffee-side-view.jpg') }}"
+        alt="Coffee Culture"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-50"
+        loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2c2825]/30 to-[#2c2825]/70"></div>
+    
+    <div class="absolute inset-0 flex items-center justify-center px-4">
+        <div class="text-center max-w-3xl text-white">
+            <div class="mb-6">
+                <svg class="w-10 h-10 mx-auto text-[#d4a574]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
             </div>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-light leading-tight font-tanishq-display mb-6 tracking-tight">
+                The Art of
+                <span class="block mt-3">Coffee & Tea</span>
+            </h2>
+            <p class="text-base md:text-lg font-light leading-relaxed mb-2 max-w-2xl mx-auto italic">
+                "Transform every pour into a ceremony"
+            </p>
+            <p class="text-sm font-light leading-relaxed opacity-80 mb-10 max-w-xl mx-auto">
+                Discover our exquisite collection of serveware that makes every sip a moment of pure indulgence.
+            </p>
+            <a href="{{ route('shop') }}"
+                class="inline-block px-12 py-3 bg-white text-gray-900 text-xs font-light tracking-widest uppercase transition-all duration-300 hover:bg-[#d4a574] hover:text-white">
+                Shop The Collection
+            </a>
         </div>
     </div>
 </section>
